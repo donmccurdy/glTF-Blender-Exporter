@@ -2569,6 +2569,9 @@ def generate_materials(operator,
                                            blender_material.diffuse_color[2] * blender_material.diffuse_intensity,
                                            alpha]
 
+                pbrMetallicRoughness['metallicFactor'] = 0.0
+                pbrMetallicRoughness['roughnessFactor'] = 0.9
+
                 if alphaMode != 'OPAQUE':
                     material['alphaMode'] = alphaMode
 
@@ -2776,7 +2779,6 @@ def generate_materials(operator,
 
         if KHR_materials_unlit_Used:
             create_extensionsUsed(operator, context, export_settings, glTF, 'KHR_materials_unlit')
-            create_extensionsRequired(operator, context, export_settings, glTF, 'KHR_materials_unlit')
 
         if KHR_materials_displacement_Used:
             create_extensionsUsed(operator, context, export_settings, glTF, 'KHR_materials_displacement')
